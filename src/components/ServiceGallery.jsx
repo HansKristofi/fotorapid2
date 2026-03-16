@@ -7,7 +7,7 @@ const services = [
     title: "Poze tip Buletin",
     desc: "Formate: 3×4, 4×5, 3.5×4.5 cm. Gata în 30 minute.",
     price: "De la 20 lei / set",
-    img: "/buletin.jpg",
+    img: "/fotorapid2/buletin.jpg",
     className: "col-span-1",
   },
   {
@@ -15,7 +15,7 @@ const services = [
     title: "Nunți",
     desc: "Fotografiem momentele speciale ale zilei tale. Album digital inclus.",
     price: "Prețuri la cerere",
-    img: "/nunti.jpg",
+    img: "/fotorapid2/nunti.jpg",
     className: "col-span-1",
   },
   {
@@ -23,7 +23,7 @@ const services = [
     title: "Evenimente",
     desc: "Conferințe, petreceri, botezuri, evenimente corporate.",
     price: "Prețuri la cerere",
-    img: "/evenimente.jpg",
+    img: "/fotorapid2/evenimente.jpg",
     className: "col-span-1",
   },
   {
@@ -31,7 +31,7 @@ const services = [
     title: "Poze printate",
     desc: "Printăm în formate 10×15, 13×18, 20×30 și mai mari pe hârtie premium.",
     price: "De la 1,5 lei / poză",
-    img: "/print.jpg",
+    img: "/fotorapid2/print.jpg",
     className: "col-span-1",
   }
 ];
