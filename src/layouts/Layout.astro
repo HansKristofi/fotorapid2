@@ -1,0 +1,141 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<!doctype html>
+<html lang="ro">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="keywords" content="foto rapid oradea, fotografii buletin oradea, developare fotografii oradea, poze printate oradea, fotograf nunta oradea" />
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content="/herobackground.jpeg" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="ro_RO" />
+    
+    <link rel="icon" type="image/png" href="/logo.png" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+    <!-- Schema.org for Local Business -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "Foto Rapid Oradea",
+        "image": "/logo.png",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Calea Republicii nr. 21",
+          "addressLocality": "Oradea",
+          "addressRegion": "Bihor",
+          "postalCode": "410032",
+          "addressCountry": "RO"
+        },
+        "telephone": "+40771013142",
+        "url": "https://fotorapid.ro",
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+            "opens": "09:00",
+            "closes": "17:00"
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body class="bg-dark-bg text-stone-50 selection:bg-primary selection:text-white">
+    <!-- Navbar -->
+    <header class="fixed top-0 left-0 w-full z-50 bg-black/80 backdrop-blur-md border-b border-white/10">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-20">
+          <div class="flex-shrink-0">
+            <a href="#hero" class="flex items-center gap-2 group">
+              <img src="/logo.png" alt="Foto Rapid Oradea Logo" class="h-10 w-auto group-hover:scale-105 transition-transform" />
+              <span class="font-bold text-xl tracking-tight hidden sm:block">Foto Rapid</span>
+            </a>
+          </div>
+          
+          <!-- Desktop menu -->
+          <nav class="hidden md:block">
+            <ul class="flex space-x-8">
+              <li><a href="#hero" class="hover:text-primary transition-colors font-medium">Acasă</a></li>
+              <li><a href="#despre" class="hover:text-primary transition-colors font-medium">Despre</a></li>
+              <li><a href="#galerie" class="hover:text-primary transition-colors font-medium">Servicii</a></li>
+              <li><a href="#recenzii" class="hover:text-primary transition-colors font-medium">Recenzii</a></li>
+              <li><a href="#contact" class="hover:text-primary transition-colors font-medium">Contact</a></li>
+            </ul>
+          </nav>
+
+          <!-- Mobile menu toggle button -->
+          <div class="md:hidden">
+            <button id="mobile-menu-btn" class="text-stone-300 hover:text-white focus:outline-none p-2" aria-label="Open mobile menu">
+              <i class="fas fa-bars text-2xl" id="menu-icon"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Mobile menu (hidden by default) -->
+      <div id="mobile-menu" class="hidden md:hidden bg-stone-900/95 backdrop-blur-md border-b border-white/10 absolute w-full transition-all origin-top">
+        <ul class="px-2 pt-2 pb-6 space-y-1 sm:px-3 text-center">
+          <li><a href="#hero" class="block px-3 py-4 text-base font-medium hover:bg-white/5 rounded-md mobile-link">Acasă</a></li>
+          <li><a href="#despre" class="block px-3 py-4 text-base font-medium hover:bg-white/5 rounded-md mobile-link">Despre</a></li>
+          <li><a href="#galerie" class="block px-3 py-4 text-base font-medium hover:bg-white/5 rounded-md mobile-link">Servicii</a></li>
+          <li><a href="#recenzii" class="block px-3 py-4 text-base font-medium hover:bg-white/5 rounded-md mobile-link">Recenzii</a></li>
+          <li><a href="#contact" class="block px-3 py-4 text-primary font-bold hover:bg-white/5 rounded-md mobile-link">Contact</a></li>
+        </ul>
+      </div>
+    </header>
+
+    <main class="w-full mx-auto relative overflow-hidden pt-20">
+      <slot />
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-black/90 pt-16 pb-8 border-t border-white/5">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center">
+        <img src="/logo.png" alt="Foto Rapid Oradea" class="h-12 w-auto mb-6 opacity-80" />
+        <p class="text-stone-400 text-sm mb-2">&copy; {new Date().getFullYear()} Foto Rapid Oradea. Toate drepturile rezervate.</p>
+        <p class="text-stone-500 text-xs text-center max-w-md">Calea Republicii nr. 21, Oradea. Developări foto, poze de buletin, și preluare evenimente în timp record.</p>
+      </div>
+    </footer>
+
+    <!-- Mobile menu script -->
+    <script>
+      const btn = document.getElementById('mobile-menu-btn');
+      const menu = document.getElementById('mobile-menu');
+      const icon = document.getElementById('menu-icon');
+      const links = document.querySelectorAll('.mobile-link');
+      
+      const toggleMenu = () => {
+        menu?.classList.toggle('hidden');
+        if (menu?.classList.contains('hidden')) {
+          icon?.classList.remove('fa-times');
+          icon?.classList.add('fa-bars');
+        } else {
+          icon?.classList.remove('fa-bars');
+          icon?.classList.add('fa-times');
+        }
+      };
+
+      btn?.addEventListener('click', toggleMenu);
+      
+      links.forEach(link => {
+        link.addEventListener('click', toggleMenu);
+      });
+    </script>
+  </body>
+</html>
