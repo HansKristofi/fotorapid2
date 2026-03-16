@@ -5,14 +5,15 @@ import ServiceGallery from '../components/ServiceGallery.jsx';
 import OpeningHours from '../components/OpeningHours.jsx';
 import FloatingActionButton from '../components/FloatingActionButton.jsx';
 import PhotographyBackground from '../components/PhotographyBackground.jsx';
+import ReviewsTicker from '../components/ReviewsTicker.jsx';
 ---
 
 <Layout title="Foto Rapid Oradea – Fotografii de calitate în timp record" description="Foto Rapid Oradea – developăm fotografii de calitate în timp record din 2008. Poze buletin, nunți, evenimente, poze printate. Calea Republicii nr. 21, Oradea.">
   
   <!-- Hero Section -->
   <section id="hero" class="relative min-h-[90vh] flex items-center justify-center pt-20 pb-16">
-    <!-- Animated Photography Background -->
-    <PhotographyBackground client:load />
+    <!-- Animated Photography Background (Deferred) -->
+    <PhotographyBackground client:idle />
 
     <div class="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row items-center justify-between gap-12">
       <!-- Text Content -->
@@ -39,9 +40,9 @@ import PhotographyBackground from '../components/PhotographyBackground.jsx';
         </FadeInUp>
       </div>
 
-      <!-- Opening Hours Component -->
+      <!-- Opening Hours Component (Deferred) -->
       <div class="flex-1 w-full flex justify-center lg:justify-end">
-        <OpeningHours client:load />
+        <OpeningHours client:idle />
       </div>
     </div>
   </section>
@@ -115,30 +116,13 @@ import PhotographyBackground from '../components/PhotographyBackground.jsx';
             <div class="flex text-yellow-500 gap-1 text-lg">
               <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
             </div>
-            <span class="text-stone-300 font-medium">4.8 / 5 pe Google Reviews</span>
+            <span class="text-stone-300 font-medium whitespace-nowrap">5 / 5 pe Google</span>
           </div>
         </div>
       </FadeInUp>
       
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        {[
-          { text: "Am venit pentru niște poze de buletin și am fost impresionată de rapiditate. În 20 de minute aveam pozele în mână. Calitate excelentă!", author: "Maria D.", delay: 0 },
-          { text: "Am printat toate pozele de la nunta noastră aici. Culorile au ieșit superb, exact cum le-am văzut pe ecran. Recomand cu încredere!", author: "Andrei & Simona", delay: 0.1 },
-          { text: "Personal foarte amabil și profesionist. Prețuri corecte, locație centrală. Merg de ani de zile și nu am fost dezamăgit niciodată.", author: "Bogdan T.", delay: 0.2 }
-        ].map((review) => (
-          <FadeInUp client:visible delay={review.delay}>
-            <div class="glass-panel p-8 relative h-full flex flex-col">
-              <i class="fas fa-quote-left text-4xl text-primary/20 absolute top-6 left-6"></i>
-              <div class="flex text-yellow-500 text-sm mb-4">
-                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-              </div>
-              <p class="text-stone-300 italic mb-6 relative z-10 flex-grow">"{review.text}"</p>
-              <div class="mt-auto">
-                <span class="font-bold text-white">— {review.author}</span>
-              </div>
-            </div>
-          </FadeInUp>
-        ))}
+      <div class="-mx-4 sm:mx-0">
+        <ReviewsTicker client:visible />
       </div>
     </div>
   </section>
@@ -208,6 +192,6 @@ import PhotographyBackground from '../components/PhotographyBackground.jsx';
     </div>
   </section>
 
-  <!-- Mobile Floating Action Button -->
-  <FloatingActionButton client:load />
+  <!-- Mobile Floating Action Button (Deferred) -->
+  <FloatingActionButton client:idle />
 </Layout>
