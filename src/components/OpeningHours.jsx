@@ -19,7 +19,7 @@ export default function OpeningHours() {
           <h3 className="text-xl font-bold mb-6 flex items-center gap-2 text-white">
             <i className="far fa-clock text-primary"></i> Program de lucru
           </h3>
-          <ul className="space-y-4">
+          <ul className="space-y-4 mb-6">
             {schedule.map((item, idx) => (
               <li key={idx} className="flex justify-between items-center border-b border-white/5 pb-2 last:border-0 last:pb-0">
                 <span className="text-stone-300 font-medium">{item.day}</span>
@@ -29,6 +29,15 @@ export default function OpeningHours() {
               </li>
             ))}
           </ul>
+          
+          <div className="bg-black/20 rounded-xl p-4 border border-white/5 space-y-2 text-sm text-stone-300 leading-relaxed shadow-inner">
+            <p>
+              <strong className="text-white">În caz de nevoie vă servim și în afara programului.</strong> Accesați telefonul <a href="tel:0771013142" className="text-primary hover:text-primary-light transition-colors font-bold">0771 013 142</a>.
+            </p>
+            <p className="border-t border-white/5 pt-2">
+              Unitate Foto-Digital fondată în <strong className="text-white">1989</strong>. Dotată cu tehnică și aparatură modernă. Executăm orice fotografie pentru acte. Filmăm, pozăm orice eveniment.
+            </p>
+          </div>
         </div>
       </div>
     </FadeInUp>

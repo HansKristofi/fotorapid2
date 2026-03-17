@@ -2,13 +2,9 @@ import { motion, useMotionValue, useAnimation, useAnimationFrame } from "motion/
 import { useRef, useState } from "react";
 
 const reviews = [
-  { text: "Very pleasant experience. The guy is waiting for you. He's going to put a smile on your face. Very professional.", author: "Kristofi Hans", rating: "5/5", source: "Google", date: "3 years ago" },
-  { text: null, author: "I G", rating: "5/5", source: "Google", date: "a year ago" },
+  { text: "Very pleasant experience. The guy is waiting for you. He's going to put a smile on your face. Very professional.", author: "I G", rating: "5/5", source: "Google", date: "a year ago" },
   { text: "Foarte bună calitate şi executat rapid! Chiar între sărbători mi-a fost life-saving ;)", author: "Brigi Berei", rating: "5/5", source: "Google", date: "a year ago" },
-  { text: "Készséges kiszolgálás, pedig egy különleges kéréssel jelentkeztem!!!!", author: "mihai hanga", rating: "5/5", source: "Google", date: "10 months ago" },
-  { text: null, author: "Alexia Delia", rating: "5/5", source: "Google", date: "9 months ago" },
-  { text: null, author: "Annamária Strifler", rating: "5/5", source: "Google", date: "2 years ago" },
-  { text: null, author: "Gabriel K", rating: "5/5", source: "Google", date: "2 years ago" }
+  { text: "Készséges kiszolgálás, pedig egy különleges kéréssel jelentkeztem!!!!", author: "mihai hanga", rating: "5/5", source: "Google", date: "10 months ago" }
 ];
 
 export default function ReviewsTicker() {
