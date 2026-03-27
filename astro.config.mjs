@@ -4,8 +4,8 @@ import tailwindcss from '@tailwindcss/vite';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://HansKristofi.github.io', 
-  base: '/fotorapid2',
+  site: 'https://fotorapid.ro', 
+  base: '/',
   integrations: [react()],
   vite: {
     plugins: [tailwindcss()]
